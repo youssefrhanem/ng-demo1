@@ -31,6 +31,17 @@
                             <i *ngIf="p.promotion==true" class="bi bi-heart-fill text-success"></i>
                         </td>
                         <td>
+                            <button (click)="handleSetPromotion(p)"
+                                [ngClass]="p.promotion==true? 'btn btn-success' : 'btn btn-danger'">
+                                <span *ngIf="p.promotion==true">
+                                    Promo off
+                                </span>
+                                <span *ngIf="p.promotion==false">
+                                    Promo On
+                                </span>
+                            </button>
+                        </td>
+                        <td>
 
                             <button (click)="handleDeleteProduct(p)" class="btn btn-danger">
                                 <i class="bi bi-trash"></i>

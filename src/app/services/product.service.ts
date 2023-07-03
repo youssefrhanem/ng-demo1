@@ -88,4 +88,12 @@ export class ProductService {
     this.products = this.products.filter((p) => p.id != id);
     return of(true);
   }
+
+  public setPromotion(id: number): Observable<Boolean> {
+    let product = this.products.find((p) => p.id == id);
+    if (product != undefined) {
+      product.promotion = !product.promotion;
+      return of(true);
+    } else return throwError(() => new Error('Product not found'));
+  }
 }
